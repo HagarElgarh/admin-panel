@@ -1,5 +1,5 @@
 .sidebar {
-  height: calc(100vh - 60px);
+  height: 100%;
   width: 250px;
   background-color: #f4f7fc;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -7,9 +7,7 @@
 
   &.closed {
     width: 0;
-    /* Sidebar collapses completely */
     overflow: hidden;
-    /* Prevent content visibility */
   }
 
   .menu {
@@ -89,5 +87,16 @@
     align-items: center;
     justify-content: center;
 
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed; 
+    top: 60px;
+    bottom: 0; 
+    left: 0;
+    overflow-y: auto;
+    z-index: 1000;
   }
 }
