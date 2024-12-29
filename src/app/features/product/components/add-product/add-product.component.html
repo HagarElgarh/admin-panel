@@ -1,0 +1,47 @@
+<div class="container mt-4">
+  <div class="edit-product-container">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" class="row">
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" id="title" class="form-control" formControlName="title" placeholder="Enter product title" />
+      <div *ngIf="title?.invalid && title?.touched" class="invalid-feedback">
+        Title is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" class="form-control" formControlName="description" placeholder="Enter product description"></textarea>
+      <div *ngIf="description?.invalid && description?.touched" class="invalid-feedback">
+        Description is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" class="form-control" formControlName="price" placeholder="Enter product price" />
+      <div *ngIf="price?.invalid && price?.touched" class="invalid-feedback">
+        Price must be a positive number.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="category">Category</label>
+      <input type="text" id="category" class="form-control" formControlName="category" placeholder="Enter product category" />
+      <div *ngIf="category?.invalid && category?.touched" class="invalid-feedback">
+        Category is required.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image URL</label>
+      <input type="text" id="image" class="form-control" formControlName="image" placeholder="Enter image URL" />
+      <div *ngIf="image?.invalid && image?.touched" class="invalid-feedback">
+        Image URL is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="productForm.invalid">Add Product</button>
+  </form>
+</div>
+</div>

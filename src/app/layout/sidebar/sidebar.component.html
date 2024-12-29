@@ -1,0 +1,41 @@
+<div class="sidebar" [class.closed]="!isSidebarOpen">
+  <nav *ngIf="isSidebarOpen" class="menu">
+    <ul class="list-unstyled">
+      <!-- Products Main Item -->
+      <li>
+        <a  (click)="toggleProductsMenu()">
+          <i class="bi bi-box"></i> Products
+          <i class="bi" [ngClass]="isProductsOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+        </a>
+        <!--  Products Submenu-->
+        <ul *ngIf="isProductsOpen" class="submenu">
+          <li>
+            <a routerLink="/admin/products/list" routerLinkActive="active">
+              <i class="bi bi-list"></i> View Products
+            </a>
+          </li>
+          <li>
+            <a routerLink="/admin/products/add" routerLinkActive="active">
+              <i class="bi bi-plus-circle"></i> Add Product
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="pointer">
+        <a  routerLink="/admin/categories/list" routerLinkActive="active">
+          <i class="bi bi-tags"></i> Categories
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<!-- Toggle button for sidebar -->
+<button
+  class="btn btn-primary toggle-btn"
+  (click)="toggleSidebar()"
+  aria-label="Toggle Sidebar"
+>
+  <i class="bi" [ngClass]="isSidebarOpen ? 'bi-chevron-left' : 'bi-chevron-right'"></i>
+</button>

@@ -1,0 +1,14 @@
+<div class="card">
+    <img [src]="product.image" class="card-img-top" alt="{{ product.title }}" />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">{{ product.description | slice: 0:100 }}...</p>
+      <div class="d-flex justify-content-between">
+        <span class="badge bg-primary">{{ product.category }}</span>
+        <span class="text-success">{{ product.price | currency }}</span>
+      </div>
+      <!-- Slot for additional actions (Ex: delete , edit )-->
+      <ng-content></ng-content>
+    </div>
+  </div>
+  
